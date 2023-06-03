@@ -3,14 +3,16 @@ import React from 'react'
 
 interface SearchResultProps {
     data: {
+        page: number;
         results: {
             name: string;
             pub_url: string;
             cu_author: string;
             date: string;
         }[];
-        page: number;
-        limit: number;
+        size: number;
+        totalData: number;
+        error: string;
     };
 }
 
@@ -23,23 +25,26 @@ function SearchResult({ data }: SearchResultProps) {
         <section className='p-10 w-full h-full flex-1 container mx-auto'>
 
             {
-                data.results.length === 0 ?
+                data?.error || (data?.results?.length === 0) ?
                     <div className='bg-white p-5'>
                         No Data Found
                     </div>
                     :
-                    <>
-                        <div className='mb-4 flex flex-wrap gap-2 justify-between px-3'>
-                            <label className='text-gray-600'>
-                                Search Results...
-                            </label>
-                            <label className='text-gray-600'>
-                                Total Results: 1000
-                            </label>
-                        </div>
+                    <>{
+                        data?.results?.length > 0 ?
+                            <div className='mb-4 flex flex-wrap gap-2 justify-between px-3 font-semibold'>
+                                <label className='text-gray-600 '>
+                                    Search Results...
+                                </label>
+                                <label className='text-gray-600'>
+                                    Total Results: {data?.totalData}
+                                </label>
+                            </div>
+                            : ""
+                    }
                         <ul>
                             {
-                                data.results.map((value: {
+                                data?.results?.map((value: {
                                     name: string;
                                     pub_url: string;
                                     cu_author: string;
