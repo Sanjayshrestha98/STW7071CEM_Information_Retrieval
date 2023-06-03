@@ -74,7 +74,7 @@ export default function Home() {
       className={`pb-20`}
     >
       <section className='flex flex-col gap-10 p-20 pb-10 place-items-center bg-brand-4 px-10 '>
-        <Image alt='logo' width={'200'} height={'40'} src={"/next.svg"} priority={true} style={{ width: "auto", height: "auto", maxWidth: "200px" }} />
+        <Image alt='logo' width={'200'} height={'40'} src={"/cu.svg"} priority={true} style={{ width: "auto", height: "auto", maxWidth: "200px" }} />
         <div className='relative w-full flex bg-white container overflow-hidden rounded-md '>
 
           <Formik
