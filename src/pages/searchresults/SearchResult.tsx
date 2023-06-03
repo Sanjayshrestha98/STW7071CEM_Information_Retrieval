@@ -6,6 +6,7 @@ interface SearchResultProps {
         page: number;
         results: {
             name: string;
+            category: [];
             pub_url: string;
             cu_author: string;
             date: string;
@@ -56,6 +57,13 @@ function SearchResult({ data }: SearchResultProps) {
                                             <Link href={value?.pub_url} target="_blank" className='text-neutral-400 text-sm'>{value?.pub_url}</Link>
                                         </div>
                                         <p className='text-neutral-400 text-sm'>{value?.cu_author}, {value?.date}</p>
+                                        <div className='mt-2 flex flex-wrap gap-3'>
+                                            {
+                                                value?.category.map((cat) =>
+                                                    <label className='text-xs text-white bg-green-700 px-2 py-1 rounded-full '>{cat}</label>
+                                                )
+                                            }
+                                        </div>
                                         {/* <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0" /></svg></button> */}
                                     </li>
                                 )

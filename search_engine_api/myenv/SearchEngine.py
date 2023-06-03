@@ -19,7 +19,8 @@ nltk.download('wordnet')
 nltk.download('punkt')
 
 #Preprosessing data before indexing
-with open('resultssss.json', 'r') as doc: scraper_results=doc.read()
+# with open('resultssss.json', 'r') as doc: scraper_results=doc.read()
+with open('res.json', 'r') as doc: scraper_results=doc.read()
 
 pubName = []
 pubURL = []
